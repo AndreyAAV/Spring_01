@@ -1,13 +1,13 @@
 import by.itclass.beans.Dog;
 import by.itclass.beans.Person2;
+import by.itclass.config.AppConfig1;
 import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-public class Runner_exm1 {
+public class Runner_exm2 {
     public static void main(String[] args) {
-        ApplicationContext context = new ClassPathXmlApplicationContext("config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig1.class);
 
-        //Получение Java объекта из bean-a
         Dog dog = (Dog) context.getBean("dog1");
         System.out.println(dog);
 
@@ -16,8 +16,6 @@ public class Runner_exm1 {
 
         Person2 person2 = (Person2) context.getBean("person2");
         System.out.println(person2);
-
-        //Class.forName("jash")->Class.get
 
     }
 }

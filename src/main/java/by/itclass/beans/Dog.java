@@ -1,4 +1,4 @@
-package by.itclass;
+package by.itclass.beans;
 
 public class Dog {
     private String name;

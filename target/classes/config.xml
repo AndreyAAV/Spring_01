@@ -4,17 +4,26 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-
-    <bean name="dog1" class="by.itclass.Dog">
+<!--    Тэг property установит значение через вызов метода set -->
+    <bean name="dog1" class="by.itclass.beans.Dog">
         <property name="name" value="Sharik"/>
     </bean>
 
-    <bean name="dog2" class="by.itclass.Dog">
+    <bean name="dog2" class="by.itclass.beans.Dog">
         <constructor-arg value="Bobik"/>
     </bean>
 
-    <bean name="person2" class="by.itclass.Person2">
-        <constructor-arg ref="dog2"/>
+    <bean name="person2" class="by.itclass.beans.Person2">
+        <constructor-arg ref="dog1"/>
+    </bean>
+
+<!--    Определение связи Services - DAO через xml-->
+    <bean name="dao" class="by.itclass.components.dao.DAO">
+
+    </bean>
+
+    <bean name="service" class="by.itclass.components.services.Service">
+        <constructor-arg ref="dao"/>
     </bean>
 
 </beans>
